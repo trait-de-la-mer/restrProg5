@@ -1,0 +1,8 @@
+{"1":
+{"postalAddress":{"zipCode":"show"},"name":"123","coordinates":{"x":123,"y":123.0},"fullName":"123","annualTurnover":123.0,"id":4,"creationDate":"2025-06-18","type":"GOVERNMENT"},
+  "2":
+  {"postalAddress":{"zipCode":"94043"},"name":"Google","coordinates":{"x":37,"y":122.0},"fullName":"Google LLC","annualTurnover":2.0,"id":1,"creationDate":"2023-11-15","type":"PRIVATE_LIMITED_COMPANY"},
+  "3":
+  {"postalAddress":{"zipCode":"20546"},"name":"NASA","coordinates":{"x":38,"y":77.0},"fullName":"National Aeronautics and Space Administration","annualTurnover":325324.0,"id":2,"creationDate":"2023-11-16","type":"GOVERNMENT"},
+  "5123":
+  {"postalAddress":{"zipCode":"32"},"name":"asd","coordinates":{"x":32,"y":12.0},"fullName":"aqewqe","annualTurnover":1231.0,"id":5,"creationDate":"2025-06-18","type":"COMMERCIAL"},"4":{"postalAddress":{"zipCode":"94304"},"name":"Tesla","coordinates":{"x":37,"y":122.0},"fullName":"Tesla, Inc.","annualTurnover":538.0,"id":3,"creationDate":"2023-11-17","type":"PRIVATE_LIMITED_COMPANY"}}
