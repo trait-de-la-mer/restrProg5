@@ -1,13 +1,13 @@
 package Main.Utils;
 
-import Main.Collection.Organization;
+import Main.Collection.LabWork;
 
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 
 public class CollectionManager {
     private long lastId = 0;
-    private HashMap<Integer, Organization> orgCollection = new HashMap<>();
+    private HashMap<Integer, LabWork> orgCollection = new HashMap<>();
     private final ZonedDateTime creationDate = ZonedDateTime.now();
 
     public void setLastId(long lastId) {
@@ -22,7 +22,7 @@ public class CollectionManager {
         return creationDate;
     }
 
-    public void setOrgCollection(HashMap<Integer, Organization> orgCollection) {
+    public void setLabCollection(HashMap<Integer, LabWork> orgCollection) {
         this.orgCollection = orgCollection;
     }
 
@@ -30,11 +30,11 @@ public class CollectionManager {
         orgCollection.remove(key);
     }
 
-    public void addElement(Integer key, Organization org){
+    public void addElement(Integer key, LabWork org){
         orgCollection.put(key, org);
     }
 
-    public void addElement(Integer key, Organization org, Long id){
+    public void addElement(Integer key, LabWork org, Long id){
         orgCollection.put(key, org);
         orgCollection.get(key).setId(id);
     }
@@ -49,7 +49,7 @@ public class CollectionManager {
 
     public int getCollectionSyze(){return orgCollection.size();}
 
-    public HashMap<Integer, Organization> getOrgCollection() {
+    public HashMap<Integer, LabWork> getOrgCollection() {
         return orgCollection;
     }
 
@@ -60,7 +60,4 @@ public class CollectionManager {
     public void printCol(){
         System.out.println(orgCollection);
     }
-
-
-    //СЮДА НАПИСАТЬ ЗАГРУЗУ В КОЛЛЕКЦИЮ И В КОНСТРУКТОР ЗАСУНУТЬ ЛИБО ФАЙЛ ЛИБО МЕНЕГЕР ФАЙЛОВ
 }

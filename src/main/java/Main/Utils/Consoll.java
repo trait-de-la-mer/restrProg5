@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class Consoll {
-    static ArrayList<String> files = new ArrayList<>();
+    static ArrayList<String> files = new ArrayList<>(); //показывает вложенность
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     static ArrayList<InputStream> readers = new ArrayList<>();
     static boolean scriptFlag;
@@ -45,7 +45,8 @@ public class Consoll {
     public void startConsole(){
         String line;
         do{
-        line = generateNextLine().toLowerCase(Locale.ENGLISH).trim().replaceAll("\\s+", " ");
+            line = generateNextLine().toLowerCase(Locale.ENGLISH).trim().replaceAll("\\s+", " ");
+            System.out.println(line);
             String[] comAndArgs = line.split(" ");
             cm.executeC(comAndArgs);
         } while (true);

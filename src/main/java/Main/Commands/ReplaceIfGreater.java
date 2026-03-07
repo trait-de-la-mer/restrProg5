@@ -1,9 +1,9 @@
 package Main.Commands;
 
-import Main.Collection.Address;
+
 import Main.Collection.Coordinates;
-import Main.Collection.Organization;
-import Main.Collection.OrganizationType;
+import Main.Collection.LabWork;
+import Main.Collection.Difficulty;
 import Main.Utils.CollectionManager;
 import Main.Utils.Consoll;
 
@@ -25,25 +25,25 @@ public class ReplaceIfGreater extends Command{
         } catch (NumberFormatException e) {
             throw new RuntimeException("аргумент должен быть int");
         }
-        Organization organization = new Organization();
-        Address address = new Address();
-        Coordinates coordinates = new Coordinates();
-        organization.setCreationDate(LocalDate.now());
-        organization.setId(getCollectionManager().getOrgCollection().get(key).getId());
-        while(!Insert.input(Arrays.toString(OrganizationType.values()), organization::setType, OrganizationType::fromString));
-        while(!Insert.input("имя", organization::setName, String::valueOf));
-        while(!Insert.input("полное имя", organization::setFullName, String::valueOf));
-        while(!Insert.input("годовой оборот", organization::setAnnualTurnover, Double::valueOf));
-        while(!Insert.input("координата по Х", coordinates::setX, Integer::valueOf));;
-        while(!Insert.input("координата по Y", coordinates::setY, Double::valueOf));;
-        organization.setCoordinates(coordinates);
-        while(!Insert.input("Индекс", address::setZipCode, String::valueOf));;
-        organization.setPostalAddress(address);
-        if (organization.compareTo(getCollectionManager().getOrgCollection().get(key)) > 0){
-            getCollectionManager().addElement(
-                    key, organization, getCollectionManager().getOrgCollection().get(key).getId());
-            Consoll.printSmt("Успешно обновлено");
-        }
-        else {Consoll.printSmt("Значение меньше");}
+//        LabWork labWork = new LabWork();
+//        Address address = new Address();
+//        Coordinates coordinates = new Coordinates();
+//        labWork.setCreationDate(LocalDate.now());
+//        labWork.setId(getCollectionManager().getOrgCollection().get(key).getId());
+//        while(!Insert.input(Arrays.toString(Difficulty.values()), labWork::setType, Difficulty::fromString));
+//        while(!Insert.input("имя", labWork::setName, String::valueOf));
+//        while(!Insert.input("полное имя", labWork::setFullName, String::valueOf));
+//        while(!Insert.input("годовой оборот", labWork::setAnnualTurnover, Double::valueOf));
+//        while(!Insert.input("координата по Х", coordinates::setX, Integer::valueOf));;
+//        while(!Insert.input("координата по Y", coordinates::setY, Double::valueOf));;
+//        labWork.setCoordinates(coordinates);
+//        while(!Insert.input("Индекс", address::setZipCode, String::valueOf));;
+//        labWork.setPostalAddress(address);
+//        if (labWork.compareTo(getCollectionManager().getOrgCollection().get(key)) > 0){
+//            getCollectionManager().addElement(
+//                    key, labWork, getCollectionManager().getOrgCollection().get(key).getId());
+//            Consoll.printSmt("Успешно обновлено");
+//        }
+//        else {Consoll.printSmt("Значение меньше");}
     }
 }

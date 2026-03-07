@@ -13,12 +13,12 @@ public class Main
     public static void main(String[] args){
        CollectionManager collectionManager = new CollectionManager();
         JParser jParser = new JParser(collectionManager);
-        collectionManager.setOrgCollection(jParser.parse("ewq.json"));
+        collectionManager.setLabCollection(jParser.parse("ewq.json"));
 
         CommandMannager cm = new CommandMannager(
                 new ExecuteScript(collectionManager),
                 new Clear(collectionManager),
-                new Insert(collectionManager),
+                new Add(collectionManager),
                 new Exit(collectionManager),
                 new Help(collectionManager),
                 new Info(collectionManager),

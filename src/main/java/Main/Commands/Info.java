@@ -16,7 +16,7 @@ public class Info extends Command{
         if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
                 "В команде " + getName() + " не может быть аргументов!");
         Consoll.printSmt("тип: " + getCollectionManager().getCollectionType());
-        Consoll.printSmt("дата инициализации: " + getCollectionManager().getCollectionSyze());
-        Consoll.printSmt("кол-во элементов: " + getCollectionManager().getCreationDate());
+        Consoll.printSmt("дата инициализации: " + getCollectionManager().getCreationDate());
+        Consoll.printSmt("кол-во элементов: " + getCollectionManager().getCollectionSyze());
     }
 }

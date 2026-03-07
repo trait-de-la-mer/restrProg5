@@ -1,10 +1,8 @@
 package Main.Commands;
 
-import Main.Collection.Address;
-import Main.Collection.Coordinates;
-import Main.Collection.Organization;
-import Main.Collection.OrganizationType;
+import Main.Collection.*;
 import Main.Utils.CollectionManager;
+import Main.Utils.Consoll;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -19,6 +17,7 @@ public class Update extends Command{
 
     @Override
     public void execute(String args) {
+        boolean isIdExist = false;
         Long id;
         try{
             id = Long.valueOf(args);
@@ -27,22 +26,29 @@ public class Update extends Command{
         }
         for (Integer key : getCollectionManager().getOrgCollection().keySet()){
             if (Objects.equals(getCollectionManager().getOrgCollection().get(key).getId(), id)){
-                Organization organization = new Organization();
-                Address address = new Address();
+                isIdExist = true;
+                LabWork labWork = new LabWork();
                 Coordinates coordinates = new Coordinates();
-                organization.setCreationDate(LocalDate.now());
-                while(!Insert.input(Arrays.toString(OrganizationType.values()), organization::setType, OrganizationType::fromString));
-                while(!Insert.input("имя", organization::setName, String::valueOf));
-                while(!Insert.input("полное имя", organization::setFullName, String::valueOf));
-                while(!Insert.input("годовой оборот", organization::setAnnualTurnover, Double::valueOf));
-                while(!Insert.input("координата по Х", coordinates::setX, Integer::valueOf));;
-                while(!Insert.input("координата по Y", coordinates::setY, Double::valueOf));;
-                organization.setCoordinates(coordinates);
-                while(!Insert.input("Индекс", address::setZipCode, String::valueOf));;
-                organization.setPostalAddress(address);
-                getCollectionManager().addElement(key, organization, id);
+                Person person = new Person();
+                labWork.setId(getCollectionManager().generateId());
+                labWork.setCreationDate(LocalDate.now());
+                while(!Add.input("сложность: " + Arrays.toString(Difficulty.values()), labWork::setDifficulty, Difficulty::fromString));
+                while(!Add.input("имя лабы", labWork::setName, String::valueOf));
+                while(!Add.input("минимальное кол-во баллов", labWork::setMinimalPoint, Double::valueOf));
+                while(!Add.input("координата по Х", coordinates::setX, Long::valueOf));
+                while(!Add.input("координата по Y", coordinates::setY, Integer::valueOf));
+                labWork.setCoordinates(coordinates);
+                while(!Add.input("ваш вес", person::setWeight, Double::valueOf));
+                while(!Add.input("ваше имя", person::setName, String::valueOf));
+                while(!Add.input("цвет глаз: " + Arrays.toString(Color.values()), person::setEyeColor, Color::fromString));
+                labWork.setAuthor(person);
+                labWork.setAuthor(person);
+                getCollectionManager().addElement(key, labWork, id);
                 break;
             }
+        }
+        if (!isIdExist){
+            Consoll.printSmt("Такого id нет");
         }
     }
 }

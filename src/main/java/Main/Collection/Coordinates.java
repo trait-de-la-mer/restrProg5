@@ -1,15 +1,16 @@
 package Main.Collection;
 
 public class Coordinates {
-    private int x;
-    private Double y; //Поле не может быть null
+    private long x;
+    private Integer y; //Поле не может быть null
 
-    public void setX(Integer x) {
-        if (x == null) throw new IllegalArgumentException("x не может быть null");
+    public void setX(long x) {
         this.x = x;
     }
 
-    public void setY(Double y) {
+    public void setY(Integer y) {
+        if (y > 593) throw new IllegalArgumentException("y не может быть > 593");
+        if (y == null) throw new IllegalArgumentException("y не может быть null");
         this.y = y;
     }
 
@@ -18,11 +19,11 @@ public class Coordinates {
         return x + ";" + y;
     }
 
-    public int getX() {
+    public long getX() {
         return x;
     }
 
-    public Double getY() {
+    public Integer getY() {
         return y;
     }
 }

@@ -1,16 +1,42 @@
 package Main.Collection;
 
 import java.time.LocalDate;
+import Main.Collection.Person;
 
-public class Organization implements Comparable<Organization>{
+public class LabWork implements Comparable<LabWork> {
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private double annualTurnover; //Значение поля должно быть больше 0
-    private String fullName; //Значение этого поля должно быть уникальным, Поле может быть null
-    private OrganizationType type; //Поле может быть null
-    private Address postalAddress; //Поле не может быть null
+    private double minimalPoint; //Значение поля должно быть больше 0
+    private Difficulty difficulty; //Поле не может быть null
+    private Person author; //Поле не может быть null
+
+    public double getMinimalPoint() {
+        return minimalPoint;
+    }
+
+    public void setMinimalPoint(double minimalPoint) {
+        this.minimalPoint = minimalPoint;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        if (difficulty == null) throw new IllegalArgumentException("тип не может быть null");
+        this.difficulty = difficulty;
+    }
+
+    public void setAuthor(Person author) {
+        this.author = author;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public Person getAuthor() {
+        return author;
+    }
+
 
     public void setCreationDate(LocalDate creationDate) {
         if (creationDate == null) throw new IllegalArgumentException("время создания не может быть null");
@@ -33,21 +59,6 @@ public class Organization implements Comparable<Organization>{
         return creationDate;
     }
 
-    public double getAnnualTurnover() {
-        return annualTurnover;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public OrganizationType getType() {
-        return type;
-    }
-
-    public Address getPostalAddress() {
-        return postalAddress;
-    }
 
     public void setId(Long id) {
         if (id <= 0) throw new IllegalArgumentException("Id должно быть > 0");
@@ -66,44 +77,20 @@ public class Organization implements Comparable<Organization>{
         this.coordinates = coordinates;
     }
 
-    public void setAnnualTurnover(Double annualTurnover) {
-        if (annualTurnover == null) throw new IllegalArgumentException("оборот не может быть null");
-        if (annualTurnover <= 0) throw new IllegalArgumentException("оборот должен быть > 0");
-        this.annualTurnover = annualTurnover;
-    }
-
-    public void setFullName(String fullName) {
-        if (fullName == null) throw new IllegalArgumentException("полное имя не может быть null");
-        if (fullName.length() > 1354) throw new IllegalArgumentException("слишком длинное!");
-        this.fullName = fullName;
-    }
-
-    public void setType(OrganizationType type) {
-        if (type == null) throw new IllegalArgumentException("тип не может быть null");
-        this.type = type;
-    }
-
-    public void setPostalAddress(Address postalAddress) {
-        if (postalAddress == null) throw new IllegalArgumentException("адрес не может быть null");
-        this.postalAddress = postalAddress;
-    }
-
     @Override
     public String toString() {
-        return "Organization{" +
+        return "LabWork{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", coordinates=" + coordinates +
                 ", creationDate=" + creationDate +
-                ", annualTurnover=" + annualTurnover +
-                ", fullName='" + fullName + '\'' +
-                ", type=" + type +
-                ", postalAddress=" + postalAddress +
+                ", minimalPoint=" + minimalPoint +
+                ", difficulty=" + difficulty +
+                ", author: " + author +
                 '}';
     }
-
     @Override
-    public int compareTo(Organization o) {
-        return (int)(this.annualTurnover - o.annualTurnover);
+    public int compareTo(LabWork o) {
+        return (int)(this.minimalPoint - o.minimalPoint);
     }
 }

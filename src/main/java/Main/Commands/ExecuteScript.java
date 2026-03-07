@@ -23,7 +23,7 @@ public class ExecuteScript extends Command{
             Consoll.addReader(reader);
             Consoll.setReader(reader);
         } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException("Файл: " + file + " - не найден"); //если ошибка прав доступа - мне пизда
+            throw new IllegalArgumentException("Файл: " + file + " - не найден");
         }
     }
 }

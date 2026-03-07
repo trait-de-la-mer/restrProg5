@@ -19,11 +19,11 @@ public class RemoveAllByAnnualTurnover extends Command{
             throw new RuntimeException("аргумент должен быть Long");
         }
         for (Integer key : getCollectionManager().getOrgCollection().keySet()){
-            if (getCollectionManager().getOrgCollection().get(key).getAnnualTurnover() == annualTurnover){
-                Remove remove = new Remove(getCollectionManager());
-                remove.execute(String.valueOf(key));
-                Consoll.printSmt("Удалена орга с ключом: " + key);
-            }
+//            if (getCollectionManager().getOrgCollection().get(key).getAnnualTurnover() == annualTurnover){
+//                Remove remove = new Remove(getCollectionManager());
+//                remove.execute(String.valueOf(key));
+//                Consoll.printSmt("Удалена орга с ключом: " + key);
+//            }
         }
 
     }

@@ -1,8 +1,7 @@
 package Main.Utils;
-import Main.Collection.Address;
 import Main.Collection.Coordinates;
-import Main.Collection.Organization;
-import Main.Collection.OrganizationType;
+import Main.Collection.LabWork;
+import Main.Collection.Difficulty;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,8 +18,8 @@ public class JParser {
         this.collectionManager = collectionManager;
     }
 
-    public HashMap<Integer, Organization> parse(String file){
-        HashMap<Integer, Organization> organizationsMap = new HashMap<>();
+    public HashMap<Integer, LabWork> parse(String file){
+        HashMap<Integer, LabWork> organizationsMap = new HashMap<>();
         JSONParser parser = new JSONParser();
 
         try (InputStreamReader reader = new InputStreamReader(
@@ -29,26 +28,26 @@ public class JParser {
             for (Object key : jsonObject.keySet()) {
                 String orgKey = (String) key;
                 JSONObject orgJson = (JSONObject) jsonObject.get(orgKey);
-                Organization org = new Organization();
+                LabWork org = new LabWork();
                 Long id = (Long.valueOf(orgJson.get("id").toString()));
                 if (id > collectionManager.getLastId()){collectionManager.setLastId(id);}
                 org.setId(id);
                 org.setName(orgJson.get("name").toString());
                 JSONObject coordinatesJson = (JSONObject) orgJson.get("coordinates");
                 Coordinates coordinates = new Coordinates();
-                coordinates.setX(Integer.valueOf(coordinatesJson.get("x").toString()));
-                coordinates.setY(Double.valueOf(coordinatesJson.get("y").toString()));
+                coordinates.setX(Long.valueOf(coordinatesJson.get("x").toString()));
+                coordinates.setY(Integer.valueOf(coordinatesJson.get("y").toString()));
                 org.setCoordinates(coordinates);
                 String creationDateStr = orgJson.get("creationDate").toString();
                 org.setCreationDate(LocalDate.parse(creationDateStr));
-                org.setAnnualTurnover(Double.valueOf(orgJson.get("annualTurnover").toString()));
-                org.setFullName(orgJson.get("fullName").toString());
+//                org.setAnnualTurnover(Double.valueOf(orgJson.get("annualTurnover").toString()));
+//                org.setFullName(orgJson.get("fullName").toString());
                 String typeStr = orgJson.get("type").toString();
-                org.setType(OrganizationType.fromString(typeStr));
-                JSONObject addressJson = (JSONObject) orgJson.get("postalAddress");
-                Address address = new Address();
-                address.setZipCode((String) addressJson.get("zipCode"));
-                org.setPostalAddress(address);
+//                org.setType(Difficulty.fromString(typeStr));
+//                JSONObject addressJson = (JSONObject) orgJson.get("postalAddress");
+//                Address address = new Address();
+//                address.setZipCode((String) addressJson.get("zipCode"));
+//                org.setPostalAddress(address);
                 organizationsMap.put(Integer.valueOf(orgKey), org);
             }
 
@@ -71,11 +70,11 @@ public class JParser {
     }
 
 
-        public void convertToJson(HashMap<Integer, Organization> organizations, String file) {
+        public void convertToJson(HashMap<Integer, LabWork> organizations, String file) {
             JSONObject orgJ = new JSONObject();
             try (PrintWriter writer = new PrintWriter(new FileOutputStream(file))) {
                 for (Integer key : organizations.keySet()) {
-                    Organization org = organizations.get(key);
+                    LabWork org = organizations.get(key);
                     JSONObject orgJson = new JSONObject();
                     orgJson.put("id", org.getId());
                     orgJson.put("name", org.getName());
@@ -84,12 +83,12 @@ public class JParser {
                     coords.put("x", org.getCoordinates().getX());
                     coords.put("y", org.getCoordinates().getY());
                     orgJson.put("coordinates", coords);
-                    orgJson.put("annualTurnover", org.getAnnualTurnover());
-                    orgJson.put("fullName", org.getFullName());
-                    orgJson.put("type", org.getType().name());
-                    JSONObject address = new JSONObject();
-                    address.put("zipCode", org.getPostalAddress().getZipCode());
-                    orgJson.put("postalAddress", address);
+//                    orgJson.put("annualTurnover", org.getAnnualTurnover());
+//                    orgJson.put("fullName", org.getFullName());
+//                    orgJson.put("type", org.getType().name());
+//                    JSONObject address = new JSONObject();
+//                    address.put("zipCode", org.getPostalAddress().getZipCode());
+//                    orgJson.put("postalAddress", address);
                     orgJ.put(key, orgJson);
                 }
                 writer.write(orgJ.toJSONString());
