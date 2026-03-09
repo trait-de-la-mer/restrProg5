@@ -20,7 +20,7 @@ public class Add extends Command {
     @Override
     public void execute(String parametr) {
         if (parametr == null || parametr.isBlank()) throw new IllegalArgumentException("Неправильный ключ!");
-        if (getCollectionManager().getOrgCollection().containsKey(parametr))
+        if (getCollectionManager().getLabCollection().containsKey(parametr))
             throw new IllegalArgumentException("Элемент с таким ключом уже есть!");
         Integer key;
         try {

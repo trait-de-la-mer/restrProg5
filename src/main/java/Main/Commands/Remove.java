@@ -1,6 +1,7 @@
 package Main.Commands;
 
 import Main.Utils.CollectionManager;
+import Main.Utils.Consoll;
 
 public class Remove extends Command{
     {setName("remove");
@@ -17,6 +18,9 @@ public class Remove extends Command{
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Аргумент жолжен быть int");
         }
-        getCollectionManager().removeElement(key);
+        CollectionManager cm = getCollectionManager();
+        if (cm.getLabCollection().containsKey(key)) {
+            getCollectionManager().removeElement(key);
+        } else throw new IllegalArgumentException("такого ключа нет");
     }
 }

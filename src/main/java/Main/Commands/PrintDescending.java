@@ -18,12 +18,12 @@ public class PrintDescending extends Command{
         if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
                 "В команде " + getName() + " не может быть аргументов!");
         LinkedList<Integer> collectionReverse = new LinkedList<>();
-        collectionReverse.addAll(getCollectionManager().getOrgCollection().keySet());
-        collectionReverse.sort((key1, key2) -> getCollectionManager().getOrgCollection().get(key1).compareTo(
-                getCollectionManager().getOrgCollection().get(key2)));
+        collectionReverse.addAll(getCollectionManager().getLabCollection().keySet());
+        collectionReverse.sort((key1, key2) -> getCollectionManager().getLabCollection().get(key1).compareTo(
+                getCollectionManager().getLabCollection().get(key2)));
         collectionReverse = collectionReverse.reversed();
         for (Integer key : collectionReverse){
-            Consoll.printSmt(getCollectionManager().getOrgCollection().get(key).toString());
+            Consoll.printSmt(getCollectionManager().getLabCollection().get(key).toString());
         }
     }
 }

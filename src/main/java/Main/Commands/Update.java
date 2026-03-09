@@ -24,8 +24,8 @@ public class Update extends Command{
         } catch (NumberFormatException e) {
             throw new RuntimeException("аргумент должен быть Long");
         }
-        for (Integer key : getCollectionManager().getOrgCollection().keySet()){
-            if (Objects.equals(getCollectionManager().getOrgCollection().get(key).getId(), id)){
+        for (Integer key : getCollectionManager().getLabCollection().keySet()){
+            if (Objects.equals(getCollectionManager().getLabCollection().get(key).getId(), id)){
                 isIdExist = true;
                 LabWork labWork = new LabWork();
                 Coordinates coordinates = new Coordinates();

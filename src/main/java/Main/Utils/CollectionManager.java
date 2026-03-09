@@ -49,7 +49,7 @@ public class CollectionManager {
 
     public int getCollectionSyze(){return orgCollection.size();}
 
-    public HashMap<Integer, LabWork> getOrgCollection() {
+    public HashMap<Integer, LabWork> getLabCollection() {
         return orgCollection;
     }
 

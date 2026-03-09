@@ -13,6 +13,6 @@ public class Save extends Command{
     @Override
     public void execute(String file) {
         JParser jParser = new JParser(getCollectionManager());
-        jParser.convertToJson(getCollectionManager().getOrgCollection(), file);
+        jParser.convertToJson(getCollectionManager().getLabCollection(), file);
     }
 }

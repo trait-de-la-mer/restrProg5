@@ -5,38 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="009fdd97-7165-4538-b55c-9fe2edd71488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Collection/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Collection/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Collection/Organization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/LabWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Collection/OrganizationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/Difficulty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/ExecuteScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveAllByAnnualTurnover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveAllByAnnualTurnover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/ReplaceIfGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/ReplaceIfGreater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/CollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/CommandMannager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/CommandMannager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/Consoll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/Consoll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/JParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/JParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Collection/Address.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Collection/Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Collection/Coordinates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Collection/Organization.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Collection/OrganizationType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/Insert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/Insert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/MaxByIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/MaxByIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/PrintDescending.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/PrintDescending.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/RemoveAllByAnnualTurnover.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/RemoveAllByAnnualTurnover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/ReplaceIfGreater.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/ReplaceIfGreater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/Show.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/Show.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/CollectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/Consoll.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/Consoll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/JParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/JParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Remove.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
