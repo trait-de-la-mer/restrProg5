@@ -60,4 +60,10 @@ public class CollectionManager {
     public void printCol(){
         System.out.println(labCollection);
     }
+
+    public void changeLab(LabWork lab, int idx){
+        labCollection.set(idx, lab);
+    }
 }
+
+

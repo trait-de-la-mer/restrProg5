@@ -1,4 +1,4 @@
-add 6
+add
 EASY
 2
 2
@@ -8,4 +8,4 @@ EASY
 2
 red
 show
-Script ewq.txt
+Script qwe.txt

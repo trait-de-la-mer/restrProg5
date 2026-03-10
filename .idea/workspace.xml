@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="009fdd97-7165-4538-b55c-9fe2edd71488" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/qwe.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ewq.json" beforeDir="false" afterPath="$PROJECT_DIR$/ewq.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/MaxByIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/MaxByIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/PrintDescending.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/PrintDescending.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Remove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveAllByAnnualTurnover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveAllByAnnualTurnover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveGreaterKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveGreaterKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ewq.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ewq.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Update.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/CollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/JParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/JParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/Save.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/Save.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/JParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/JParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/Update.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/CollectionManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

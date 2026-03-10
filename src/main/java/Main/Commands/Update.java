@@ -6,6 +6,7 @@ import Main.Utils.Consoll;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Objects;
 
 public class Update extends Command{
@@ -44,7 +45,20 @@ public class Update extends Command{
                 while(!Add.input("цвет глаз: " + Arrays.toString(Color.values()), person::setEyeColor, Color::fromString));
                 labWork.setAuthor(person);
                 labWork.setAuthor(person);
-                getCollectionManager().addElement(labWork, needId);
+                //getCollectionManager().addElement(labWork, needId);
+                CollectionManager cm = getCollectionManager();
+                labWork.setId(currentId);
+                Iterator<LabWork> iterator = cm.getLabCollection().iterator();
+                int counter = 0;
+                while (iterator.hasNext()){
+                    LabWork someLabWork = iterator.next();
+                    if (Objects.equals(someLabWork.getId(), needId)){
+                        cm.changeLab(labWork, counter);
+                        cm.setLastId(cm.getLastId() - 1);
+                        return;
+                    }
+                    counter++;
+                }
                 break;
             }
         }
