@@ -7,8 +7,7 @@ import org.json.simple.parser.ParseException;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
+import java.util.LinkedList;
 
 public class JParser {
     static String file;
@@ -17,70 +16,79 @@ public class JParser {
         this.collectionManager = collectionManager;
     }
 
-    public HashMap<Integer, LabWork> parse(String file){
-        JParser.file = file;
-        HashMap<Integer, LabWork> organizationsMap = new HashMap<>();
-        JSONParser parser = new JSONParser();
+        public LinkedList<LabWork> parse(String file){
+            JParser.file = file;
+            LinkedList<LabWork> labs = new LinkedList<>();
+            JSONParser parser = new JSONParser();
+            try (InputStreamReader reader = new InputStreamReader(
+                    new FileInputStream(file), StandardCharsets.UTF_8)) {
+                JSONObject jsonObject = (JSONObject) parser.parse(reader);
+                for (Object key : jsonObject.keySet()) {
+                    String orgKey = (String) key;
+                    JSONObject orgJson = (JSONObject) jsonObject.get(orgKey);
 
-        try (InputStreamReader reader = new InputStreamReader(
-                new FileInputStream(file), StandardCharsets.UTF_8)) {
-            JSONObject jsonObject = (JSONObject) parser.parse(reader);
-            for (Object key : jsonObject.keySet()) {
-                String orgKey = (String) key;
-                JSONObject orgJson = (JSONObject) jsonObject.get(orgKey);
-                LabWork lab = new LabWork();
-                Long id = (Long.valueOf(orgJson.get("id").toString()));
-                if (id > collectionManager.getLastId()){collectionManager.setLastId(id);}
-                lab.setId(id);
-                lab.setName(orgJson.get("name").toString());
-                JSONObject coordinatesJson = (JSONObject) orgJson.get("coordinates");
-                Coordinates coordinates = new Coordinates();
-                coordinates.setX(Long.parseLong(coordinatesJson.get("x").toString()));
-                coordinates.setY(Integer.valueOf(coordinatesJson.get("y").toString()));
-                lab.setCoordinates(coordinates);
+                    LabWork lab = new LabWork();
 
-                JSONObject personJson = (JSONObject) orgJson.get("person");
-                Person person = new Person();
-                person.setName(personJson.get("personName").toString());
-                person.setWeight(Double.parseDouble(personJson.get("personWeight").toString()));
-                String personEyeType = personJson.get("eye").toString();
-                person.setEyeColor(Color.fromString(personEyeType));
-                lab.setAuthor(person);
+                    // ИСПРАВЛЕНО: ID берем из ключа (orgKey), так как в JSON он не лежит внутри объекта
+                    Long id = Long.valueOf(orgKey);
 
-                String creationDateStr = orgJson.get("creationDate").toString();
-                lab.setCreationDate(LocalDate.parse(creationDateStr));
-                lab.setMinimalPoint(Double.parseDouble(orgJson.get("minimalPoints").toString()));
-                String typeStr = orgJson.get("difficulty").toString();
-                lab.setDifficulty(Difficulty.fromString(typeStr));
-                organizationsMap.put(Integer.valueOf(orgKey), lab);
+                    // ВЕРНУТО: логика обновления последнего ID
+                    if (id > collectionManager.getLastId()) {
+                        collectionManager.setLastId(id);
+                    }
+
+                    lab.setId(id);
+                    lab.setName(orgJson.get("name").toString());
+
+                    JSONObject coordinatesJson = (JSONObject) orgJson.get("coordinates");
+                    Coordinates coordinates = new Coordinates();
+                    coordinates.setX(Long.parseLong(coordinatesJson.get("x").toString()));
+                    coordinates.setY(Integer.valueOf(coordinatesJson.get("y").toString()));
+                    lab.setCoordinates(coordinates);
+
+                    JSONObject personJson = (JSONObject) orgJson.get("person");
+                    Person person = new Person();
+                    person.setName(personJson.get("personName").toString());
+                    person.setWeight(Double.parseDouble(personJson.get("personWeight").toString()));
+                    String personEyeType = personJson.get("eye").toString();
+                    person.setEyeColor(Color.fromString(personEyeType));
+                    lab.setAuthor(person);
+
+                    String creationDateStr = orgJson.get("creationDate").toString();
+                    lab.setCreationDate(LocalDate.parse(creationDateStr));
+                    lab.setMinimalPoint(Double.parseDouble(orgJson.get("minimalPoints").toString()));
+                    String typeStr = orgJson.get("difficulty").toString();
+                    lab.setDifficulty(Difficulty.fromString(typeStr));
+
+                    // ИСПРАВЛЕНО: LinkedList не имеет метода put, используем add
+                    labs.add(lab);
+                }
+
+            } catch (FileNotFoundException e ){
+                Consoll.printSmt("файл " + file + " не найден");
+            } catch (NumberFormatException e){
+                Consoll.printSmt("Проверь правильность введенных данных (возможно не тот тип данных)");
+            } catch (IllegalArgumentException e){
+                Consoll.printSmt(e.getMessage());
+            } catch (IOException e) {
+                Consoll.printSmt("Непредвиденная ошибка чтения файла " + file);
+            } catch (ParseException e) {
+              Consoll.printSmt("Что-то не так с данными файла");
+            } catch (NullPointerException e) {
+                Consoll.printSmt("Ошибка, возможно что-то не так с названиями полей");
+            } catch (Exception e) {
+                System.err.println("Критическая ошибка");;
             }
-
-        } catch (FileNotFoundException e ){
-            Consoll.printSmt("файл " + file + " не найден");
-        } catch (NumberFormatException e){
-            Consoll.printSmt("Проверь правильность введенных данных (возможно не тот тип данных)");
-        } catch (IllegalArgumentException e){
-            Consoll.printSmt(e.getMessage());
-        } catch (IOException e) {
-            Consoll.printSmt("Непредвиденная ошибка чтения файла " + file);
-        } catch (ParseException e) {
-          Consoll.printSmt("Что-то не так с данными файла");
-        } catch (NullPointerException e) {
-            Consoll.printSmt("Ошибка, возможно что-то не так с названиями полей");
-        } catch (Exception e) {
-            System.err.println("Критическая ошибка");;
+            return labs;
         }
-        return organizationsMap;
-    }
 
 
-        public void convertToJson(HashMap<Integer, LabWork> organizations) {
+        public void convertToJson(LinkedList<LabWork> labs) {
             JSONObject orgJ = new JSONObject();
             try (PrintWriter writer = new PrintWriter(new FileOutputStream(file))) {
-                for (Integer key : organizations.keySet()) {
-                    LabWork lab = organizations.get(key);
+                for (LabWork lab : labs) {
+                    long id = lab.getId();
                     JSONObject orgJson = new JSONObject();
-                    orgJson.put("id", lab.getId());
                     orgJson.put("name", lab.getName());
                     orgJson.put("creationDate", lab.getCreationDate().toString());
                     orgJson.put("minimalPoints", lab.getMinimalPoint());
@@ -92,13 +100,12 @@ public class JParser {
                     coordinatesJson.put("y", lab.getCoordinates().getY());
                     orgJson.put("coordinates", coordinatesJson);
 
-
                     JSONObject personJson = new JSONObject();
                     personJson.put("personName", lab.getAuthor().getName());
                     personJson.put("personWeight", lab.getAuthor().getWeight());
                     personJson.put("eye", lab.getAuthor().getEyeColor().toString());
                     orgJson.put("person", personJson);
-                    orgJ.put(key, orgJson);
+                    orgJ.put(id, orgJson);
                 }
                 writer.write(orgJ.toJSONString());
                 writer.flush();

@@ -3,11 +3,11 @@ package Main.Utils;
 import Main.Collection.LabWork;
 
 import java.time.ZonedDateTime;
-import java.util.HashMap;
+import java.util.LinkedList;
 
 public class CollectionManager {
     private long lastId = 0;
-    private HashMap<Integer, LabWork> orgCollection = new HashMap<>();
+    private LinkedList<LabWork> labCollection = new LinkedList<>();
     private final ZonedDateTime creationDate = ZonedDateTime.now();
 
     public void setLastId(long lastId) {
@@ -22,35 +22,35 @@ public class CollectionManager {
         return creationDate;
     }
 
-    public void setLabCollection(HashMap<Integer, LabWork> orgCollection) {
-        this.orgCollection = orgCollection;
+    public void setLabCollection(LinkedList<LabWork> labCollection) {
+        this.labCollection = labCollection;
     }
 
-    public void removeElement(Integer key){
-        orgCollection.remove(key);
+    public void removeElement(int index){
+        labCollection.remove(index);
     }
 
-    public void addElement(Integer key, LabWork org){
-        orgCollection.put(key, org);
+    public void addElement(LabWork lab){
+        labCollection.addLast(lab);
     }
 
-    public void addElement(Integer key, LabWork org, Long id){
-        orgCollection.put(key, org);
-        orgCollection.get(key).setId(id);
+    public void addElement(LabWork lab, Long id){
+        labCollection.addLast(lab);
+        labCollection.getLast().setId(id);
     }
 
     public void clearCollection(){
-        orgCollection.clear();
+        labCollection.clear();
     }
 
     public String getCollectionType() {
-        return orgCollection.getClass().getName();
+        return labCollection.getClass().getName();
     }
 
-    public int getCollectionSyze(){return orgCollection.size();}
+    public int getCollectionSyze(){return labCollection.size();}
 
-    public HashMap<Integer, LabWork> getLabCollection() {
-        return orgCollection;
+    public LinkedList<LabWork> getLabCollection() {
+        return labCollection;
     }
 
     public Long generateId(){
@@ -58,6 +58,6 @@ public class CollectionManager {
     }
 
     public void printCol(){
-        System.out.println(orgCollection);
+        System.out.println(labCollection);
     }
 }

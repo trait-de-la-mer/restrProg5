@@ -18,14 +18,15 @@ public class Update extends Command{
     @Override
     public void execute(String args) {
         boolean isIdExist = false;
-        Long id;
+        Long needId;
         try{
-            id = Long.valueOf(args);
+            needId = Long.valueOf(args);
         } catch (NumberFormatException e) {
             throw new RuntimeException("аргумент должен быть Long");
         }
-        for (Integer key : getCollectionManager().getLabCollection().keySet()){
-            if (Objects.equals(getCollectionManager().getLabCollection().get(key).getId(), id)){
+        for (LabWork lab : getCollectionManager().getLabCollection()){
+            Long currentId = lab.getId();
+            if (Objects.equals(needId, currentId)){
                 isIdExist = true;
                 LabWork labWork = new LabWork();
                 Coordinates coordinates = new Coordinates();
@@ -43,7 +44,7 @@ public class Update extends Command{
                 while(!Add.input("цвет глаз: " + Arrays.toString(Color.values()), person::setEyeColor, Color::fromString));
                 labWork.setAuthor(person);
                 labWork.setAuthor(person);
-                getCollectionManager().addElement(key, labWork, id);
+                getCollectionManager().addElement(labWork, needId);
                 break;
             }
         }

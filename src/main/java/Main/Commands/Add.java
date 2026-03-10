@@ -18,14 +18,9 @@ public class Add extends Command {
     }
 
     @Override
-    public void execute(String parametr) {
-        if (parametr == null || parametr.isBlank()) throw new IllegalArgumentException("Неправильный ключ!");
-        if (getCollectionManager().getLabCollection().containsKey(parametr))
-            throw new IllegalArgumentException("Элемент с таким ключом уже есть!");
-        Integer key;
-        try {
-            key = Integer.valueOf(parametr);
-        } catch (NumberFormatException e){throw new IllegalArgumentException("ключ должен быть int!");}
+    public void execute(String args) {
+        if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
+                "В команде " + getName() + " не может быть аргументов!");
         LabWork labWork = new LabWork();
         Coordinates coordinates = new Coordinates();
         Person person = new Person();
@@ -41,7 +36,7 @@ public class Add extends Command {
         while(!input("ваше имя", person::setName, String::valueOf));
         while(!input("цвет глаз: " + Arrays.toString(Color.values()), person::setEyeColor, Color::fromString));
         labWork.setAuthor(person);
-        getCollectionManager().addElement(key, labWork);
+        getCollectionManager().addElement(labWork);
         Consoll.printSmt("Успешно добавлен!");
     }
 

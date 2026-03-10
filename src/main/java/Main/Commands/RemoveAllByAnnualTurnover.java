@@ -17,13 +17,13 @@ public class RemoveAllByAnnualTurnover extends Command{
         } catch (NumberFormatException e) {
             throw new RuntimeException("аргумент должен быть Long");
         }
-        for (Integer key : getCollectionManager().getLabCollection().keySet()){
+//        for (Integer key : getCollectionManager().getLabCollection().keySet()){
 //            if (getCollectionManager().getOrgCollection().get(key).getAnnualTurnover() == annualTurnover){
 //                Remove remove = new Remove(getCollectionManager());
 //                remove.execute(String.valueOf(key));
 //                Consoll.printSmt("Удалена орга с ключом: " + key);
 //            }
-        }
-
+//        }
+//
     }
 }

@@ -15,15 +15,15 @@ public class PrintDescending extends Command{
 
     @Override
     public void execute(String args) {
-        if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
-                "В команде " + getName() + " не может быть аргументов!");
-        LinkedList<Integer> collectionReverse = new LinkedList<>();
-        collectionReverse.addAll(getCollectionManager().getLabCollection().keySet());
-        collectionReverse.sort((key1, key2) -> getCollectionManager().getLabCollection().get(key1).compareTo(
-                getCollectionManager().getLabCollection().get(key2)));
-        collectionReverse = collectionReverse.reversed();
-        for (Integer key : collectionReverse){
-            Consoll.printSmt(getCollectionManager().getLabCollection().get(key).toString());
-        }
+//        if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
+//                "В команде " + getName() + " не может быть аргументов!");
+//        LinkedList<Integer> collectionReverse = new LinkedList<>();
+//        collectionReverse.addAll(getCollectionManager().getLabCollection().keySet());
+//        collectionReverse.sort((key1, key2) -> getCollectionManager().getLabCollection().get(key1).compareTo(
+//                getCollectionManager().getLabCollection().get(key2)));
+//        collectionReverse = collectionReverse.reversed();
+//        for (Integer key : collectionReverse){
+//            Consoll.printSmt(getCollectionManager().getLabCollection().get(key).toString());
+//        }
     }
 }

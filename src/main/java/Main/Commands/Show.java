@@ -1,5 +1,6 @@
 package Main.Commands;
 
+import Main.Collection.LabWork;
 import Main.Utils.CollectionManager;
 import Main.Utils.Consoll;
 
@@ -15,8 +16,8 @@ public class Show extends Command{
     public void execute(String args) {
         if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
                 "В команде " + getName() + " не может быть аргументов!");
-        for (Integer key : getCollectionManager().getLabCollection().keySet()){
-            Consoll.printSmt(key + " - " + getCollectionManager().getLabCollection().get(key).toString());
+        for (LabWork lab : getCollectionManager().getLabCollection()){
+            Consoll.printSmt(lab.toString());
         }
     }
 }

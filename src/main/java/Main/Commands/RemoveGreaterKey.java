@@ -18,13 +18,13 @@ public class RemoveGreaterKey extends Command{
         } catch (NumberFormatException e) {
             throw new RuntimeException("аргумент должен быть int");
         }
-        for (Integer keys : getCollectionManager().getLabCollection().keySet()){
-            if (keys > key){
-                Remove remove = new Remove(getCollectionManager());
-                remove.execute(String.valueOf(keys));
-                Consoll.printSmt("Удален элемент с ключом: " + keys);
-            }
-        }
+//        for (Integer keys : getCollectionManager().getLabCollection().keySet()){
+//            if (keys > key){
+//                Remove remove = new Remove(getCollectionManager());
+//                remove.execute(String.valueOf(keys));
+//                Consoll.printSmt("Удален элемент с ключом: " + keys);
+//            }
+//        }
 
     }
 }

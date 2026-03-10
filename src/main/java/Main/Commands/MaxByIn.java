@@ -14,10 +14,9 @@ public class MaxByIn extends Command{
     public void execute(String args){
         if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
                 "В команде " + getName() + " не может быть аргументов!");
-        for (Integer key : getCollectionManager().getLabCollection().keySet()){
-            if (getCollectionManager().getLabCollection().get(key).getId() == getCollectionManager().getLastId()){
-                Consoll.printSmt(key + " - " + getCollectionManager().getLabCollection().get(key).toString());
-            }
+//        for (Integer key : getCollectionManager().getLabCollection().keySet()){
+//            if (getCollectionManager().getLabCollection().get(key).getId() == getCollectionManager().getLastId()){
+//                Consoll.printSmt(key + " - " + getCollectionManager().getLabCollection().get(key).toString());
+//            }
         }
-    }
 }
