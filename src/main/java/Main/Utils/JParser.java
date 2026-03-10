@@ -1,7 +1,5 @@
 package Main.Utils;
-import Main.Collection.Coordinates;
-import Main.Collection.LabWork;
-import Main.Collection.Difficulty;
+import Main.Collection.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -13,12 +11,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 public class JParser {
+    static String file;
     CollectionManager collectionManager;
     public JParser(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
     }
 
     public HashMap<Integer, LabWork> parse(String file){
+        JParser.file = file;
         HashMap<Integer, LabWork> organizationsMap = new HashMap<>();
         JSONParser parser = new JSONParser();
 
@@ -28,27 +28,31 @@ public class JParser {
             for (Object key : jsonObject.keySet()) {
                 String orgKey = (String) key;
                 JSONObject orgJson = (JSONObject) jsonObject.get(orgKey);
-                LabWork org = new LabWork();
+                LabWork lab = new LabWork();
                 Long id = (Long.valueOf(orgJson.get("id").toString()));
                 if (id > collectionManager.getLastId()){collectionManager.setLastId(id);}
-                org.setId(id);
-                org.setName(orgJson.get("name").toString());
+                lab.setId(id);
+                lab.setName(orgJson.get("name").toString());
                 JSONObject coordinatesJson = (JSONObject) orgJson.get("coordinates");
                 Coordinates coordinates = new Coordinates();
-                coordinates.setX(Long.valueOf(coordinatesJson.get("x").toString()));
+                coordinates.setX(Long.parseLong(coordinatesJson.get("x").toString()));
                 coordinates.setY(Integer.valueOf(coordinatesJson.get("y").toString()));
-                org.setCoordinates(coordinates);
+                lab.setCoordinates(coordinates);
+
+                JSONObject personJson = (JSONObject) orgJson.get("person");
+                Person person = new Person();
+                person.setName(personJson.get("personName").toString());
+                person.setWeight(Double.parseDouble(personJson.get("personWeight").toString()));
+                String personEyeType = personJson.get("eye").toString();
+                person.setEyeColor(Color.fromString(personEyeType));
+                lab.setAuthor(person);
+
                 String creationDateStr = orgJson.get("creationDate").toString();
-                org.setCreationDate(LocalDate.parse(creationDateStr));
-//                org.setAnnualTurnover(Double.valueOf(orgJson.get("annualTurnover").toString()));
-//                org.setFullName(orgJson.get("fullName").toString());
-                String typeStr = orgJson.get("type").toString();
-//                org.setType(Difficulty.fromString(typeStr));
-//                JSONObject addressJson = (JSONObject) orgJson.get("postalAddress");
-//                Address address = new Address();
-//                address.setZipCode((String) addressJson.get("zipCode"));
-//                org.setPostalAddress(address);
-                organizationsMap.put(Integer.valueOf(orgKey), org);
+                lab.setCreationDate(LocalDate.parse(creationDateStr));
+                lab.setMinimalPoint(Double.parseDouble(orgJson.get("minimalPoints").toString()));
+                String typeStr = orgJson.get("difficulty").toString();
+                lab.setDifficulty(Difficulty.fromString(typeStr));
+                organizationsMap.put(Integer.valueOf(orgKey), lab);
             }
 
         } catch (FileNotFoundException e ){
@@ -70,30 +74,36 @@ public class JParser {
     }
 
 
-        public void convertToJson(HashMap<Integer, LabWork> organizations, String file) {
+        public void convertToJson(HashMap<Integer, LabWork> organizations) {
             JSONObject orgJ = new JSONObject();
             try (PrintWriter writer = new PrintWriter(new FileOutputStream(file))) {
                 for (Integer key : organizations.keySet()) {
-                    LabWork org = organizations.get(key);
+                    LabWork lab = organizations.get(key);
                     JSONObject orgJson = new JSONObject();
-                    orgJson.put("id", org.getId());
-                    orgJson.put("name", org.getName());
-                    orgJson.put("creationDate", org.getCreationDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
-                    JSONObject coords = new JSONObject();
-                    coords.put("x", org.getCoordinates().getX());
-                    coords.put("y", org.getCoordinates().getY());
-                    orgJson.put("coordinates", coords);
-//                    orgJson.put("annualTurnover", org.getAnnualTurnover());
-//                    orgJson.put("fullName", org.getFullName());
-//                    orgJson.put("type", org.getType().name());
-//                    JSONObject address = new JSONObject();
-//                    address.put("zipCode", org.getPostalAddress().getZipCode());
-//                    orgJson.put("postalAddress", address);
+                    orgJson.put("id", lab.getId());
+                    orgJson.put("name", lab.getName());
+                    orgJson.put("creationDate", lab.getCreationDate().toString());
+                    orgJson.put("minimalPoints", lab.getMinimalPoint());
+                    orgJson.put("difficulty", lab.getDifficulty().toString());
+
+
+                    JSONObject coordinatesJson = new JSONObject();
+                    coordinatesJson.put("x", lab.getCoordinates().getX());
+                    coordinatesJson.put("y", lab.getCoordinates().getY());
+                    orgJson.put("coordinates", coordinatesJson);
+
+
+                    JSONObject personJson = new JSONObject();
+                    personJson.put("personName", lab.getAuthor().getName());
+                    personJson.put("personWeight", lab.getAuthor().getWeight());
+                    personJson.put("eye", lab.getAuthor().getEyeColor().toString());
+                    orgJson.put("person", personJson);
                     orgJ.put(key, orgJson);
                 }
                 writer.write(orgJ.toJSONString());
                 writer.flush();
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 Consoll.printSmt("Произошла ошибка при записи в файл " );
             }
         }

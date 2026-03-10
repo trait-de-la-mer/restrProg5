@@ -1,11 +1,11 @@
-insert sss
-Government
-123
-123
-123
-123
-123
-123
-123
+add 6
+EASY
+2
+2
+2
+2
+2
+2
+red
 show
-save ewq.json
+Script ewq.txt

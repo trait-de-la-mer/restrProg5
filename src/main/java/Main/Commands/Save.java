@@ -11,8 +11,10 @@ public class Save extends Command{
     }
 
     @Override
-    public void execute(String file) {
+    public void execute(String args) {
+        if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
+                "В команде " + getName() + " не может быть аргументов!");
         JParser jParser = new JParser(getCollectionManager());
-        jParser.convertToJson(getCollectionManager().getLabCollection(), file);
+        jParser.convertToJson(getCollectionManager().getLabCollection());
     }
 }
