@@ -103,7 +103,6 @@ public class JParser {
                 writer.write(orgJ.toJSONString());
                 writer.flush();
             } catch (Exception e) {
-                System.out.println(e.getMessage());
                 Consoll.printSmt("Произошла ошибка при записи в файл " );
             }
         }
