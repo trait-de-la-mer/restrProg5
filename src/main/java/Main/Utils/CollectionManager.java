@@ -34,10 +34,12 @@ public class CollectionManager {
         labCollection.addLast(lab);
     }
 
-    public void addElement(LabWork lab, Long id){
-        labCollection.addLast(lab);
-        labCollection.getLast().setId(id);
-    }
+    public LabWork getElemnt(int index){return labCollection.get(index);}
+
+//    public void addElement(LabWork lab, Long id){
+//        labCollection.addLast(lab);
+//        labCollection.getLast().setId(id);
+//    }
 
     public void clearCollection(){
         labCollection.clear();

@@ -45,7 +45,6 @@ public class Update extends Command{
                 while(!Add.input("цвет глаз: " + Arrays.toString(Color.values()), person::setEyeColor, Color::fromString));
                 labWork.setAuthor(person);
                 labWork.setAuthor(person);
-                //getCollectionManager().addElement(labWork, needId);
                 CollectionManager cm = getCollectionManager();
                 labWork.setId(currentId);
                 Iterator<LabWork> iterator = cm.getLabCollection().iterator();

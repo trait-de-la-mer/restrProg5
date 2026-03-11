@@ -16,6 +16,7 @@ public class Main
         collectionManager.setLabCollection(jParser.parse("ewq.json"));
 
         CommandMannager cm = new CommandMannager(
+                new RemoveFirst(collectionManager),
                 new ExecuteScript(collectionManager),
                 new Clear(collectionManager),
                 new Add(collectionManager),
@@ -25,12 +26,7 @@ public class Main
                 new Show(collectionManager),
                 new Update(collectionManager),
                 new Remove(collectionManager),
-                new Save(collectionManager),
-                new ReplaceIfGreater(collectionManager),
-                new RemoveGreaterKey(collectionManager),
-                new RemoveAllByAnnualTurnover(collectionManager),
-                new MaxByIn(collectionManager),
-                new PrintDescending(collectionManager)
+                new Save(collectionManager)
         );
         Consoll console = new Consoll(cm);
         console.startConsole();
