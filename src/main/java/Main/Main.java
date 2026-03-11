@@ -16,6 +16,7 @@ public class Main
         collectionManager.setLabCollection(jParser.parse("ewq.json"));
 
         CommandMannager cm = new CommandMannager(
+                new History(collectionManager),
                 new PrintUniqAthors(collectionManager),
                 new CountLessMin(collectionManager),
                 new RemoveFirst(collectionManager),

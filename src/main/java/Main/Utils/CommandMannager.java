@@ -2,12 +2,10 @@ package Main.Utils;
 
 import Main.Commands.*;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.*;
 
 public class CommandMannager {
+    private static final LinkedList<String> history = new LinkedList<>();
     private static final HashMap<String, Command> commands = new HashMap<>();
 
     public CommandMannager(Command... needComands) {
@@ -34,12 +32,19 @@ public class CommandMannager {
                 }
                 try {
                     commands.get(copyNameCommand[0]).execute(copyNameCommand[1]);
+                    if (history.size() == 5) {
+                        history.removeLast();
+                    }
+                    history.addFirst(copyNameCommand[0]);
                 } catch (Exception ex) {
-                    //System.out.println("ошибка поднята в командном менеджере");
                     Consoll.printSmt(ex.getMessage());}
             }
         else{
             Consoll.printSmt("Ты уверен, что ввел правильно?");
         }
+    }
+
+    public static LinkedList<String> getHistory() {
+        return history;
     }
 }
