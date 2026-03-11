@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="009fdd97-7165-4538-b55c-9fe2edd71488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Head.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveFirst.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/CountLessMin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ewq.json" beforeDir="false" afterPath="$PROJECT_DIR$/ewq.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/RemoveAllByAnnualTurnover.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ewq.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ewq.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qwe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/qwe.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Collection/LabWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/LabWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/ExecuteScript.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/CollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Commands/Update.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/CommandMannager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/CommandMannager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/MaxByIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/PrintDescending.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/RemoveAllByAnnualTurnover.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Commands/RemoveGreaterKey.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/CollectionManager.class" afterDir="false" />
     </list>

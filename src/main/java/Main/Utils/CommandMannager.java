@@ -35,6 +35,7 @@ public class CommandMannager {
                 try {
                     commands.get(copyNameCommand[0]).execute(copyNameCommand[1]);
                 } catch (Exception ex) {
+                    //System.out.println("ошибка поднята в командном менеджере");
                     Consoll.printSmt(ex.getMessage());}
             }
         else{

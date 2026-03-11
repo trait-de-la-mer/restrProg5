@@ -17,6 +17,7 @@ public class LabWork implements Comparable<LabWork> {
     }
 
     public void setMinimalPoint(double minimalPoint) {
+        if (minimalPoint < 0) throw new IllegalArgumentException("можем кнш и так проставить, но ты уверен?");
         this.minimalPoint = minimalPoint;
     }
 

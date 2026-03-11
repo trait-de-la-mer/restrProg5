@@ -14,6 +14,7 @@ public class ExecuteScript extends Command{
 
     @Override
     public void execute(String file) {
+        if (file == null || file.isBlank()) {throw new IllegalArgumentException("а где файл?");}
         if (Consoll.getFiles().contains(file)) throw new IllegalArgumentException("Файл уже в обработке, ты хочешь рекурсию?");
         Consoll.setScriptFlag(true);
         try{
