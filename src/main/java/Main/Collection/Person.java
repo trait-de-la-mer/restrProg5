@@ -54,6 +54,10 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person person) {
-        return (name.length() + (int)weight);
+        int weightCompare = Double.compare(this.weight, person.weight);
+        if (weightCompare != 0) {
+            return weightCompare;
+        }
+        return this.name.compareTo(person.name);
     }
 }

@@ -14,8 +14,8 @@ public class Main
        CollectionManager collectionManager = new CollectionManager();
         CSVParser jParser = new CSVParser(collectionManager);
         collectionManager.setLabCollection(jParser.parse("ewq.csv"));
-
         CommandMannager cm = new CommandMannager(
+                new LessThanAuthor(collectionManager),
                 new History(collectionManager),
                 new PrintUniqAthors(collectionManager),
                 new CountLessMin(collectionManager),

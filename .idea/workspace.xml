@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="009fdd97-7165-4538-b55c-9fe2edd71488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ewq.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Utils/CSVParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ewq.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ewq.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Collection/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Collection/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Utils/JParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Collection/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Collection/Person.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main/Utils/JParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Utils/JParser.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
