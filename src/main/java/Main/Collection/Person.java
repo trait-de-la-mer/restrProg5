@@ -4,7 +4,7 @@ import Main.Collection.Color;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person>{
     private String name; //Поле не может быть null, Строка не может быть пустой
     private double weight; //Значение поля должно быть больше 0
     private Color eyeColor; //Поле не может быть null
@@ -50,5 +50,10 @@ public class Person {
     @Override
     public String toString() {
         return "name = " + name + ";" + "weight = " + weight + ";" + eyeColor;
+    }
+
+    @Override
+    public int compareTo(Person person) {
+        return (name.length() + (int)weight);
     }
 }
