@@ -2,6 +2,8 @@ package Main.Collection;
 
 import Main.Collection.Color;
 
+import java.util.Objects;
+
 public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private double weight; //Значение поля должно быть больше 0
@@ -20,6 +22,18 @@ public class Person {
     public void setEyeColor(Color eyeColor) {
         if (eyeColor == null) throw new IllegalArgumentException("цвет не может быть null");
         this.eyeColor = eyeColor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Double.compare(weight, person.weight) == 0 && Objects.equals(name, person.name) && eyeColor == person.eyeColor;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, weight, eyeColor);
     }
 
     public String getName() {
