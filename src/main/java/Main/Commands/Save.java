@@ -1,7 +1,7 @@
 package Main.Commands;
 
 import Main.Utils.CollectionManager;
-import Main.Utils.JParser;
+import Main.Utils.CSVParser;
 
 public class Save extends Command{
     {setName("save");
@@ -14,7 +14,7 @@ public class Save extends Command{
     public void execute(String args) {
         if (args != null && !args.isEmpty()) throw new IllegalArgumentException(
                 "В команде " + getName() + " не может быть аргументов!");
-        JParser jParser = new JParser(getCollectionManager());
-        jParser.convertToJson(getCollectionManager().getLabCollection());
+        CSVParser jParser = new CSVParser(getCollectionManager());
+        jParser.convertToCSV(getCollectionManager().getLabCollection());
     }
 }

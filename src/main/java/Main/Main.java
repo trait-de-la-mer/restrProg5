@@ -4,7 +4,7 @@ import Main.Commands.*;
 import Main.Utils.CollectionManager;
 import Main.Utils.CommandMannager;
 import Main.Utils.Consoll;
-import Main.Utils.JParser;
+import Main.Utils.CSVParser;
 
 
 public class Main
@@ -12,8 +12,8 @@ public class Main
 
     public static void main(String[] args){
        CollectionManager collectionManager = new CollectionManager();
-        JParser jParser = new JParser(collectionManager);
-        collectionManager.setLabCollection(jParser.parse("ewq.json"));
+        CSVParser jParser = new CSVParser(collectionManager);
+        collectionManager.setLabCollection(jParser.parse("ewq.csv"));
 
         CommandMannager cm = new CommandMannager(
                 new History(collectionManager),
